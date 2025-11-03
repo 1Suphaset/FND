@@ -1,0 +1,13 @@
+pandas
+numpy
+scikit-learn
+imbalanced-learn
+joblib
+pythainlp
+tqdm
+matplotlib
+scipy
+tensorflow>=2.10.0,<2.13.0
+jupyter
+# Optional (for development/testing)
+# ipykernel

@@ -1,0 +1,21 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints
+
+# Results and large artifacts created by notebooks
+**/result/
+
+# Virtual environment
+venv/
+
+# VS Code
+.vscode/
+
+# Model files
+*.h5
+
+# Joblib/pickle
+*.pkl
