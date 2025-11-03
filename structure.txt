@@ -1,0 +1,62 @@
+Folder PATH listing for volume New Volume
+Volume serial number is 955E-94B0
+D:.
+³   .gitignore
+³   README.md
+³   requirements.txt
+³   run.py
+³   structure.txt
+³   
+?ÄÄÄapp
+³   ³   main.py
+³   ³   
+³   ?ÄÄÄconfig
+³   ³   ³   settings.py
+³   ³   ³   
+³   ³   ÀÄÄÄ__pycache__
+³   ³           settings.cpython-312.pyc
+³   ³           
+³   ?ÄÄÄroutes
+³   ³   ³   predict_route.py
+³   ³   ³   
+³   ³   ÀÄÄÄ__pycache__
+³   ³           predict_route.cpython-312.pyc
+³   ³           
+³   ?ÄÄÄservices
+³   ³   ³   ml_service.py
+³   ³   ³   
+³   ³   ÀÄÄÄ__pycache__
+³   ³           ml_service.cpython-312.pyc
+³   ³           
+³   ÀÄÄÄ__pycache__
+³           main.cpython-312.pyc
+³           
+ÀÄÄÄCore
+    ?ÄÄÄFeatures
+    ³   ³   TFIDF.ipynb
+    ³   ³   TFIDF_attacut.ipynb
+    ³   ³   
+    ³   ÀÄÄÄresult
+    ³           vectorizer.pkl
+    ³           X_tfidf.pkl
+    ³           
+    ?ÄÄÄInitData
+    ³   ³   PrepareData.ipynb
+    ³   ³   
+    ³   ÀÄÄÄresult
+    ³           X_under.pkl
+    ³           y_under.pkl
+    ³           
+    ?ÄÄÄModels
+    ³   ³   NeuralNetwork.ipynb
+    ³   ³   
+    ³   ÀÄÄÄresult
+    ³       ?ÄÄÄmodels
+    ³       ³       model_fold_5.h5
+    ³       ³       
+    ³       ÀÄÄÄtest
+    ³               Testing.ipynb
+    ³               
+    ÀÄÄÄRawData
+            NewsData10200records.csv
+            
