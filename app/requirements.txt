@@ -10,5 +10,5 @@ scipy
 tensorflow
 flask
 flask-cors
-
+gunicorn
 
