@@ -23,7 +23,58 @@ def get_vectorizer():
     return vectorizer
 
 def predict_text(model, vectorizer, text):
-    X_input = vectorizer.transform([text]).toarray().astype(np.float32)
-    proba = model.predict(X_input)[0][0]
+    # """Predict a single text and return a flexible result.
+
+    # Supports models that return a single probability (old behavior) or
+    # multiple outputs (list/tuple) as implemented in the multi-output model.
+
+    # Returns a dict with at least:
+    #   - prediction: int (0 or 1)
+    #   - probability: float (main output probability)
+
+    # If the model returns multiple outputs, the dict will also include:
+    #   - source: float
+    #   - language: float
+    #   - factual: float
+    #   - cross_source: float
+    # """
+    # Prepare input (try to be permissive about sparse/dense expectations)
+    X_input = vectorizer.transform([text])
+    try:
+        X_input_arr = X_input.toarray().astype(np.float32)
+    except Exception:
+        # If transform already returns dense
+        import numpy as _np
+        X_input_arr = _np.asarray(X_input, dtype=_np.float32)
+
+    preds = model.predict(X_input_arr)
+
+    # If model.predict returns a list/tuple of arrays (multi-output Keras model)
+    if isinstance(preds, (list, tuple)):
+        # Convert each output to scalar probability
+        probs = []
+        for p in preds:
+            try:
+                probs.append(float(p.ravel()[0]))
+            except Exception:
+                probs.append(float(p))
+
+        result = {
+            'prediction': int(probs[0] > 0.5),
+            'probability': probs[0],
+        }
+
+        # Map remaining outputs if present
+        names = ['source', 'language', 'factual', 'cross_source']
+        for name, val in zip(names, probs[1:]):
+            result[name] = val
+
+        return result
+
+    # Single-output model (legacy)
+    try:
+        proba = float(preds.ravel()[0])
+    except Exception:
+        proba = float(preds[0])
     prediction = int(proba > 0.5)
-    return prediction, proba
+    return {'prediction': prediction, 'probability': proba}
