@@ -2,7 +2,7 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 import joblib
 import os
-
+from app.config.settings import VECTORIZER_PATH,X_UNDER_PATH
 class NewsRecommender:
     def __init__(self, vectorizer_path, news_data_path):
         """Initialize recommender with paths to required files.
@@ -70,7 +70,7 @@ def get_recommender():
     global _recommender
     if _recommender is None:
         # Adjust paths as needed
-        vectorizer_path = os.path.join('Core', 'Features', 'result', 'vectorizer-new.pkl')
-        news_data_path = os.path.join('Core', 'InitData', 'result', 'X_under-all.pkl')
+        vectorizer_path = VECTORIZER_PATH
+        news_data_path = X_UNDER_PATH
         _recommender = NewsRecommender(vectorizer_path, news_data_path)
     return _recommender

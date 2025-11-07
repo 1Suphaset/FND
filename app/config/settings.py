@@ -6,6 +6,7 @@ BASE_DIR = os.path.abspath(os.path.join(BASE_DIR, "../"))  # ขึ้นไป�
 
 MODEL_PATH = os.path.join(BASE_DIR,"assets", "model_fold_5_new.h5")
 VECTORIZER_PATH = os.path.join(BASE_DIR, "assets", "vectorizer-new.pkl")
+X_UNDER_PATH = os.path.join(BASE_DIR, "assets", "X_under-all.pkl")
 
 print("MODEL_PATH:", MODEL_PATH)
 print("VECTORIZER_PATH:", VECTORIZER_PATH)
