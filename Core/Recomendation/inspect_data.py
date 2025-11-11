@@ -7,7 +7,7 @@ def print_separator():
 
 # Check CSV data
 print("Checking CSV data:")
-csv_path = os.path.join('..', 'RawData', 'NewsData10200records.csv')
+csv_path = os.path.join('..', 'RawData', 'NewsData14200records.csv')
 try:
     csv_data = pd.read_csv(csv_path)
     print("CSV Columns:", csv_data.columns.tolist())
